@@ -1,0 +1,28 @@
+{
+  "name": "open-up-app",
+  "version": "1.0.0",
+  "description": "Online Anonymous social space for people with mental health problems.",
+  "main": "server.js",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.2.1",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Takaitech/Open-Up-App.git"
+  },
+  "author": "Taylor Ward",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Takaitech/Open-Up-App/issues"
+  },
+  "homepage": "https://github.com/Takaitech/Open-Up-App#readme"
+}
