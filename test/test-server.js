@@ -8,11 +8,10 @@ const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 const should = chai.should();
 
+const { app } = require('../server');
 
-const {app} = require('../server');
 
 describe('app', function() {
-        
         
         it('should return status code 200 and html', function() {
             return chai.request(app)

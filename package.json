@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "express": "^4.16.4",
+    "mongoose": "^5.4.3",
     "travis": "^0.1.1"
   },
   "devDependencies": {
@@ -13,7 +14,7 @@
     "mocha": "^5.2.0"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha --exit",
     "start": "nodemon"
   },
   "repository": {
