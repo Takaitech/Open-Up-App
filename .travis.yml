@@ -1,2 +1,9 @@
 language: node_js
 node_js: node
+deploy:
+  provider: heroku
+  api_key:
+    secure: LlVUKsyglWkx2AbWKN7wVaBwB91DhqpfpK4GaANCxv9eYENsp4c2ekuHXPJ+Ue2A4HIKo1uKD1MnffXKKZ92cYnIMqK5ml29J7BrU+pKKHwRtU+DrrMvel4M+Z/mmkTCpHpmueu6j5flias5u+US+xfr8tT7+7gbV1j24jlKHjHyhOyK29iE01ICf/+B1dY8KVSBMDZJckhEIFkO09qBz1oCpUZa7lhT6BhjAiRrCiR5QyX1EDj/dHIS5lqAtLbJivKvRHs807+FDrweZhlNpvPeOOX7cZTF9t+qOXVPcahSY0wLE5eUal1XiyLlvKUV1jVutqnKJt9686a7sGI88+W72iFP6FHaEmj3y4BmgZ1EL7OQM8jxP2NSHCeYT/znBmm5sQoTigk9NxJj5U3LyQzYy5pOR+wdhVoBLciBcyuHXreeDA0OKx/Ty+is8xlvXmcNh251tJi03zquHQOJuHpS6rvanp3dqft4ktul4wglhIMM0fG99LrcvpfpNhwFH9VGLWtO7CO8PDVmv73BL+3RwZ0B24TRKMj49PIb6lWry8gNvpIHw0kLUhNSbM/RXoSMCpW+yN9Bu9MQE1BfLoiPHySZcmZRW60NtTIN1Y6ZgjV2DpNN1kkzCPSMWBpHoeSk6ja7zz49unZmZeRkwTKj68M98Y2jQA7eA+WIq50=
+  app: fierce-mountain-77737
+  on:
+    repo: Takaitech/Open-Up-App
