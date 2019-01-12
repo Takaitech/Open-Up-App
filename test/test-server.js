@@ -11,7 +11,7 @@ const should = chai.should();
 const { app } = require('../server');
 
 
-describe('app', function() {
+describe('index.html', function() {
         
         it('should return status code 200 and html', function() {
             return chai.request(app)
