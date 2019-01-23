@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+ 		<% include partials/head %> 
+	</head>
+    <body>
+		<header>
+		<% include partials/header %>
+		<img class="pageTitle" src="/files/MENU/Blog.png">
+		</header>
+		<% include partials/menu %>
+		<main role="main">
+			<section id="feed">
+				<% blogPosts.forEach(function(posts){ %>
+				<h2 class="postTitle"><%= posts.title %></h2>	
+				<div id=blogPost>					
+					<img class="postImage" src="<%= posts.image %>">
+					<p class="postContent>"<%= posts.text %>></p> 
+					<p class="postTime"><%= posts.publishedAt %></p>
+				</div>
+    			<% }) %>
+			</section>
+			
+		<% include partials/ads %>
+		</main>
+		<% include partials/script %>
+    </body>
+</html>

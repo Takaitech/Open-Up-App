@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+ 		<% include partials/head %> 
+	</head>
+    <body>
+		<header>
+		<% include partials/header %>
+		<input type="image" class="postUpdate" src="files/Icons/note.png">
+		</header>
+		<% include partials/menu %>
+		<main>
+			<section id="feed">
+				<% statusUpdatesMock.forEach(function(updates){ %>
+				<div class="post">
+					<div class="userThumbnail">
+						<img class="profilePhoto" src="<%= updates.profilePhoto %>">
+						<p class="userName"><%= updates.userName %></p>
+					</div>
+					<div id="statusUpdate">
+						<p class="postContent"><%= updates.text %></p> 
+						<p class="postTime"><%= updates.publishedAt %></p>
+					</div>
+				</div>
+    			<% }); %>
+				<% blogPosts.forEach(function(posts){ %>
+				<h2 class="postTitle"><%= posts.title %></h2>
+				<div id=blogPost>					
+					<img class="postImage" src="<%= posts.image %>">
+					<p class=postContent><%= posts.text %></p> 
+					<p class=postTime><%= posts.publishedAt %></p>
+				</div>
+    			<% }) %>
+			</section>
+			
+		<% include partials/ads %>
+		</main>
+		<% include partials/script %>
+    </body>
+</html>

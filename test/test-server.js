@@ -91,6 +91,5 @@ describe("Page Routes", function() {
         expect(res).to.have.status(200);
       });
   });
-        
 });
 
