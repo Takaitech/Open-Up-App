@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+ 		<% include partials/head %> 
+	</head>
+    <body>
+		<header>
+		<% include partials/header %>
+		<img class="pageTitle" src="/files/MENU/Friends.png">
+		</header>
+		<% include partials/menu %>
+		<main>
+			<section id="friends">
+				<% mockFriends.forEach(function(friends){ %>
+				<div class="userCard">
+					<img class="profilePhoto" src="<%= friends.profilePhoto %>">
+					<p ><%= friends.name %></p>
+				</div>
+    			<% }) %>
+			</section>
+		<% include partials/ads %>
+		</main>
+		<% include partials/script %>
+    </body>
+</html>

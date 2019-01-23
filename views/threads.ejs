@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+ 		<% include partials/head %> 
+	</head>
+    <body>
+		<header>
+		<% include partials/header %>
+			
+		<img class="pageTitle" src="/files/MENU/Threads.png">
+		</header>
+		<% include partials/menu %>
+		<main class="noScroll">
+			<div id="threadsList">
+				<% for(let i=0; i < threads.length; i++) { %>
+				<div id="threadContainer">
+					<button class="threadButton" name="<%=threads[i].title %>" type="button"><%=threads[i].title %>
+						<input class="openIcon" type="image" src="/files/Icons/open-icon.png">
+					</button>
+					<ul class="threadList" id="<%=threads[i].title %>Container">
+						<% threads[i].threads.forEach(function(values) {%>
+						<a class="hidden" href=""><li class="thread"><%=values%></li></a>
+						<% }); %>
+					</ul>
+					
+				</div>
+				<% }; %>
+				
+			</div>
+			
+		<% include partials/ads %>
+		</main>
+		<% include partials/script %>
+    </body>
+</html>

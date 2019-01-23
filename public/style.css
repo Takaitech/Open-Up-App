@@ -1,0 +1,318 @@
+/*GLOBAL */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow: hidden;
+}
+
+body.noScroll { /* ...or body.dialogShowing */
+  overflow: hidden;
+}
+
+* {
+	margin: 0;
+	font-family: 'Nunito', sans-serif;
+
+}
+/* HEADER/MENU */
+header {
+	height: 70px;
+	z-index: 1; 
+	
+}
+body {
+	color: white;
+	background-color: rgb(141,158,143);
+}
+
+#navLinks {
+	list-style: none;
+	position: fixed;
+	top: 125px;
+	left: -30px;
+}
+
+.link {
+	width: 100px;
+	box-sizing: border-box;
+	float: left;
+	
+}
+
+
+.link:hover ~ .hoverIcon {
+	visibility: visible;
+	
+}
+
+
+.hoverIcon {
+	height: 20px;
+	float: right;
+	visibility: hidden;
+}
+
+
+.link:hover {
+	border-bottom: solid 2px white;
+	width: 140px;
+}
+/*--------------------------------------------*/
+
+main {
+	margin-left: 200px;
+}
+
+#feed {
+	width: 80%;
+	padding: 20px;
+	border-radius: 20px;
+	background-color: rgb(95,107,96);
+	margin-bottom: 20px;
+	float: left;
+	border-left: rgb(118,122,118) 7px solid;
+	border-bottom: rgb(118,122,118) 7px solid;
+	height: 600px;
+	overflow: scroll;
+}
+
+.userThumbnail {
+	width: 15%;
+	
+}
+
+.profilePhoto {
+	width: 100px;
+}
+
+.post {
+	margin-top: 15px;
+}
+
+#statusUpdate{
+	max-width: 80%%;
+	background: white;
+	border-radius: 10px;
+	padding: 20px;
+	color: black;
+	
+}
+
+#rightWindow {
+	width: 18%;
+	height: 600px;
+	border-radius: 20px;
+	background-color: rgb(95,107,96);
+	float: right;
+	border-left: rgb(118,122,118) 7px solid;
+	border-bottom: rgb(118,122,118) 7px solid;
+}
+
+
+
+.postImage {
+	width: 100%;
+	padding: 20px;
+}
+
+.postTitle{
+	font-size: 50px;
+}
+
+#blogPost {
+	background-color: white;
+	100%;
+	border-radius: 20px;
+	margin:10px 0px;
+	color: black;
+	text-align: left
+}
+
+.postContent {
+	padding:20px;
+}
+
+.postTime {
+	text-align: right;
+	padding: 10px;
+}
+
+.category {
+	height: 50px;
+	border: 1px solid black;
+	
+}
+
+.therapistsPhoto {
+	height: 150px;
+}
+
+.therapistsCard {
+	display: inline-block;
+	margin:30px;
+	width: 25%;
+}
+
+.hexagon-one { 
+	height: 250px;
+	
+}
+
+.hexagon-two {
+	height: 250px;
+	margin-top: 50px;
+	float: 
+}
+	
+
+
+.hexagon-three {
+	margin-top:250px;
+	height: 300px;
+	float: right;
+}
+
+
+.logo {
+	height: 100px;
+	margin: 10px 0px 0px 10px;
+	position: fixed;
+	z-index: 1; 
+}
+
+.facebook {
+	position: fixed;
+	width: 135px;
+
+	left:100px;
+}
+
+
+#sideBar {
+	height: 100%;
+	top: 70px;
+	width: 200px; /* Set the width of the sidebar */
+  	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  	left: 0;
+  	background-color: #111; /* Black */
+  	overflow-x: hidden; /* Disable horizontal scroll */
+  	padding-top: 20px;
+	background-color: rgb(141,158,143);
+}
+
+.userCard {
+	float:left;
+	padding: 30px;
+	width: 25%;
+	text-align: center;
+}
+
+#friends {
+	width: 75%;
+	padding: 20px;
+	border-radius: 20px;
+	background-color: rgb(95,107,96);
+	margin-bottom: 20px;
+	float: left;
+	height: 600px;
+	overflow: scroll;
+	
+}
+
+
+.postUpdate {
+	height:20px;
+	position: relative;
+	top: 40px;
+	left: 700px;
+}
+
+#threadContainer {
+	margin-top: 10px;
+	width: 100%;
+	color: white;
+	background-color: rgb(95,107,96);
+	border-top-left-radius: 20px;
+    vertical-align: middle;
+}
+
+#threadsList, #therapists, #profile{
+	width: 80%;
+	background-color: rgb(95,107,96);
+	height: 600px;
+	border-left: rgb(118,122,118) 7px solid;
+	border-bottom: rgb(118,122,118) 7px solid;
+	border-radius: 20px;
+	overflow: scroll;
+	float: left;
+}
+
+#profile {
+	text-align: center;
+	
+}
+
+.threadButton {
+	width: 100%;
+	font-size: 25px;
+	color: white;
+ 	background: rgb(76,82,76);
+	border: 1px rgb(118,122,118) solid;
+	text-align: left;
+	border-left: none;
+	border-top: none;
+	padding: 10px;
+	font-size: 30px;
+	font-weight: bold
+	
+	
+}
+
+
+.thread {
+	width: 95%%;
+	font-size: 20px;
+	color: white;
+ 	background: rgb(76,82,76);
+	border: 1px rgb(118,122,118) solid;
+	border-bottom: 3px rgb(118,122,118) solid;
+	list-style: none;
+	padding: 5px;
+	margin-left: 5%;
+	
+}
+
+.openIcon {
+	height:50px;
+	float: right;
+	text-align: right;
+}
+
+.hidden{
+	display: none;
+}
+#adContainer {
+	background-color: darkgrey;
+	margin: 10px;
+	height: 31%;
+	border-radius: 20px;
+}
+
+.adImage {
+	height: 100%;
+	border-radius: 20px;
+}
+
+.pageTitle {
+	height: 20px;
+	position: fixed;
+	left: 215px;
+	top: 50px;
+}
+
+#profile {
+	padding: 20px;
+}
+
