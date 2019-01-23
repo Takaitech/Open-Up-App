@@ -9,6 +9,8 @@ router.get('/', function(req, res) {
 	  	page:'Login', menuId: ""
 	  	}
 	);
+	
+    res.end();
 });
 
 let statusUpdatesMock = [
@@ -290,6 +292,7 @@ router.get('/therapists', function(req, res) {
 });
 
 router.get('/therapists/:id', function(req, res) {
+	res.render('', {page:'therapists', menuId:'therapists', mockTherapists});
     if(res.status = 200) {
         console.log('therapists:id route working');
     }
