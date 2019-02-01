@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang='en'>
+	<head>
+ 		<% include partials/head %> 
+	</head>
+    <body>
+		<header>
+		<% include partials/header %>
+		<img class='pageTitle' src='/files/MENU/Threads.png'>
+		<a href='http://localhost:8080/' class='grey-text' id='logout'>Logout</a>
+		</header>
+		<% include partials/menu %>
+		<main>
+			<section id='feed'>
+				<a href='http://localhost:8080/threads'><strong class='subTitle'><%=post.category%> ></strong></a>
+				<h1 class='threadTitle'><%=post.title%></h1>
+				<div >
+					<div class='init post'>
+						<h2 class='initPostTitle'>Welcome to the <%=post.title%> thread !</h2>
+						<p class='postContent'>This thread strives to provide our users with a safe and open space for people to connect and express their experiences with <%=post.title%> anything is up for discussion so go ahead,<strong class='openUp'> OPEN UP!</strong></p> 
+						<p><small> (We please ask you make sure to be respectful to others in this space and keep the conversations PG and anonymous or appropriate actions will be taken)</small></p>
+					</div>
+				</div>
+				<% for(let i=0; i < post.threadPosts.length; i++) { %>
+				<div class='post' id='<%= post.threadPosts[i]._id%>'>
+					<div class='userThumbnail'>
+						<p class='userName'><%= post.threadPosts[i].username %></p>
+					</div>
+					<div id='statusUpdate'>
+						<strong> <%=post.threadPosts[i].title %></strong> 
+						<p class='postContent'><%= post.threadPosts[i].content %></p> 
+						<p class='postTime'><%= post.threadPosts[i].publishedAt%></p>
+						<span>likes:<%=post.threadPosts[i].likes.length %></span>
+					</div>
+					<div id='postInteraction'>
+						<div class='tooltip'>
+						<input class='likePost' id='postButtons' type='image' src='/files/Icons/like.png'>
+								<span class='tooltiptext'>like Post</span>
+						</div>
+						<!--FULL APP FEATURE
+						<div class="tooltip">
+						<input class='commentOnPost'id="postButtons" type="image" src="/files/Icons/note.png">
+								<span class="tooltiptext">Delete Post</span>
+						</div> -->
+						<div class='tooltip'>
+							<input  class='deletePost' id='postButtons' type='image' src='/files/Icons/ban.png'>
+  							<span class='tooltiptext'>Delete Post</span>
+						</div>
+					</div>
+				</div>
+				<% } %>
+				<div class='postInput'>
+					<form>
+						<fieldset>
+							<label>Title</label>
+							<input type='text' id='thread-Title' placeholder='Title'/>
+							<label>Content</label>
+							<input type='text' id='thread-Content'
+							placeholder='Content' required/>
+						</fieldset>
+						<button class='submitThreadPost' type='submit'>POST</button>
+					</form>
+				</div>
+			</section>
+		<% include partials/ads %>
+		</main>
+		<% include partials/script %>
+    </body>
+</html>

@@ -1,34 +1,31 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 	<head>
  		<% include partials/head %> 
 	</head>
     <body>
 		<header>
-		<% include partials/header %>
-			
-		<img class="pageTitle" src="/files/MENU/Threads.png">
+		<% include partials/header %>	
+		<img class='pageTitle' src='/files/MENU/Threads.png'>
+		<a href='http://localhost:8080/' class='grey-text' id='logout'>Logout</a>
 		</header>
 		<% include partials/menu %>
-		<main class="noScroll">
-			<div id="threadsList">
+		<main class='noScroll'>
+			<div id='threadsList'>
 				<% for(let i=0; i < threads.length; i++) { %>
-				<div id="threadContainer">
-					<button class="threadButton" name="<%=threads[i].title %>" type="button"><%=threads[i].title %>
-						<input class="openIcon" type="image" src="/files/Icons/open-icon.png">
+				<div id='threadContainer'>
+					<button class='threadButton' name='<%=threads[i].title %>' type='button'><%=threads[i].title %>
+						<input class='openIcon' type='image' src='/files/Icons/open-icon.png'>
 					</button>
-					<ul class="threadList" id="<%=threads[i].title %>Container">
+					<ul class='threadList' id='<%=threads[i].title %>Container'>
 						<% threads[i].threads.forEach(function(values) {%>
-						<a class="hidden" href=""><li class="thread"><%=values%></li></a>
+						<a id='threadLink' class='hidden' href='http://localhost:8080/threads/<%=values.split(" ").join("-").toLowerCase();%>'><li class='thread'><%=values%></li></a>
 						<% }); %>
 					</ul>
-					
 				</div>
 				<% }; %>
-				
 			</div>
-			
 		<% include partials/ads %>
 		</main>
 		<% include partials/script %>

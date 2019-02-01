@@ -6,16 +6,22 @@ const path = require('path');
 const logger = require('morgan');
 const bodyParser = require('body-parser');
 const userRoutes = require('./user-routes/routes');
+const morgan = require('morgan');
 
+mongoose.Promise = global.Promise;
 
 
 //express app
 const app = express();
-
+app.use(bodyParser.json());
+app.use(morgan('common'));
 
 //Routes/Config
 app.use('/', userRoutes);
-const {PORT, DATABASE_URL} = require('./config');
+const {PORT, DATABASE_URL, TEST_DATABASE_URL} = require('./config');
+const {user} = require('./models');
+
+
 
 
 //view engine
@@ -27,18 +33,20 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname,'public' )));
 
 
+//error handling middleware 
+app.use(function(err,req,res,next) {
+	//console.log(err);
+	res.status(400).send({error: err.message})
+
+})
 
 
-//Listen for requests
-app.listen(PORT, function(){
-  console.log(`now listening for requests on ${PORT}`)
-});
 
 let server;
 
-function runServer(dburl) {
+function runServer(databaseURL) {
   return new Promise((resolve, reject) => {
-    mongoose.connect(dburl || DATABASE_URL,  { useNewUrlParser: true } , err => {
+    mongoose.connect(DATABASE_URL,  { useNewUrlParser: true } , err => {
       if (err) {
         return reject(err);
       }

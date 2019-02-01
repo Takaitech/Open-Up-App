@@ -68,7 +68,7 @@ main {
 #feed {
 	width: 80%;
 	padding: 20px;
-	border-radius: 20px;
+	border-radius: 13px;
 	background-color: rgb(95,107,96);
 	margin-bottom: 20px;
 	float: left;
@@ -94,7 +94,7 @@ main {
 #statusUpdate{
 	max-width: 80%%;
 	background: white;
-	border-radius: 10px;
+	border-radius: 13px;
 	padding: 20px;
 	color: black;
 	
@@ -124,7 +124,7 @@ main {
 #blogPost {
 	background-color: white;
 	100%;
-	border-radius: 20px;
+	border-radius: 13px;
 	margin:10px 0px;
 	color: black;
 	text-align: left
@@ -132,6 +132,7 @@ main {
 
 .postContent {
 	padding:20px;
+	font-weight: normal;
 }
 
 .postTime {
@@ -146,7 +147,15 @@ main {
 }
 
 .therapistsPhoto {
-	height: 150px;
+	height: 200px;
+}
+
+.crop {
+
+ height: 200px;
+ width: 200px;
+ overflow: hidden;
+
 }
 
 .therapistsCard {
@@ -155,23 +164,26 @@ main {
 	width: 25%;
 }
 
-.hexagon-one { 
-	height: 250px;
+.hexagonone {
+	height: 200px;
+	position: fixed;
+	left: 100px;
+	top: 40px;
 	
 }
 
-.hexagon-two {
-	height: 250px;
-	margin-top: 50px;
-	float: 
-}
+.hexagontwo {
+	height: 225px;
 	
-
-
-.hexagon-three {
-	margin-top:250px;
-	height: 300px;
-	float: right;
+	right: 20px;
+	top:80px;
+	position: absolute;
+}
+.hexagonthree {
+	height: 250px;
+	position: absolute;
+	right:20px;
+	bottom: -10px;
 }
 
 
@@ -185,7 +197,6 @@ main {
 .facebook {
 	position: fixed;
 	width: 135px;
-
 	left:100px;
 }
 
@@ -212,7 +223,7 @@ main {
 #friends {
 	width: 75%;
 	padding: 20px;
-	border-radius: 20px;
+	border-radius: 13px;
 	background-color: rgb(95,107,96);
 	margin-bottom: 20px;
 	float: left;
@@ -244,7 +255,7 @@ main {
 	height: 600px;
 	border-left: rgb(118,122,118) 7px solid;
 	border-bottom: rgb(118,122,118) 7px solid;
-	border-radius: 20px;
+	border-radius: 13px;
 	overflow: scroll;
 	float: left;
 }
@@ -297,12 +308,12 @@ main {
 	background-color: darkgrey;
 	margin: 10px;
 	height: 31%;
-	border-radius: 20px;
+	border-radius: 13px;
 }
 
 .adImage {
 	height: 100%;
-	border-radius: 20px;
+	border-radius: 13px;
 }
 
 .pageTitle {
@@ -316,3 +327,147 @@ main {
 	padding: 20px;
 }
 
+#postInteraction{
+	background-color: rgb(51,51,51);
+	border-bottom-right-radius: 13px;
+	border-bottom-left-radius: 13px;
+	width:100px;
+	padding: 4px;
+	margin-left: 20px;
+}
+
+#postButtons {
+	height: 17px;
+	margin-left:10px;
+}
+
+
+input, button {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+}
+
+.subTitle {
+	color:rgb(170,180,170);
+}
+
+.threadTitle {
+	display: inline-block;
+}
+
+a {
+    text-decoration: none !important;
+}
+.initPostTitle{
+	text-align: center;
+}
+
+.openUp {
+	font-size: 30px;
+}
+
+.init{
+	border: 4px rgb(170,180,170) solid;
+	padding: 30px;
+	border-radius: 13px;
+}
+
+#login {
+	color: rgb(141,158,143);
+	
+	height: 225px;
+	width: 200px;
+	background-color: white;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 13px;
+	padding: 20px;
+	margin-top: 250px;
+}
+
+#signup {
+	color: rgb(141,158,143);
+	height: 225px;
+	width: 200px;
+	background-color: white;
+	margin-right: auto;
+	margin-left: auto;
+	border-radius: 13px;
+	padding: 20px;
+	margin-top: 250px;
+}
+
+#logout{
+	position:  absolute;
+	top: 45px;
+	right:50px;
+	color: white;
+	font-size: 15px;
+	
+
+}
+
+#input-username {
+	position: absolute;
+	left: 50%;
+    transform: translate(-50%, 0);
+	top: 50%;
+	background-color: rgb(51,51,51);
+	padding: 100px;
+	border-radius: 13px;
+}
+
+.postTime {
+	font-size: 10px;
+}
+
+.post {
+	margin-bottom: 10px;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
