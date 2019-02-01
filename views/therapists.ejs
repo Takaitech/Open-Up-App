@@ -1,26 +1,29 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 	<head>
  		<% include partials/head %> 
 	</head>
     <body>
 		<header>
 		<% include partials/header %>
-		<img class="pageTitle" src="/files/MENU/Therapists.png">
+		<img class='pageTitle' src='/files/MENU/Therapists.png'>
+		<a href='http://localhost:8080/' class='grey-text' id='logout'>Logout</a>	
 		</header>
 		<% include partials/menu %>
 		<main>
-			<section id="therapists">
+			<section id='therapists'>
 				<% mockTherapists.forEach(function(therapists){ %>
-				<div class="therapistsCard">
-				<p ><%= therapists.name %></p>
-				<img class="therapistsPhoto" src="<%= therapists.image %>">
-				<p ><%= therapists.bio %></p> 
+				<div class='therapistsCard'>
+				<p ><%=`${therapists.firstName} ${therapists.lastName}` %></p>
+				<div class='crop'>
+					<img class='therapistsPhoto' src='<%= therapists.profilePhoto%>'>
+				</div>
+				<p ><%= therapists.bio %></p>
+				<p><%= therapists.education.school %></p>
 				</div>
     			<% }) %>
 			</section>
-			
 			<% include partials/ads %>
 		</main>
 		<% include partials/script %>

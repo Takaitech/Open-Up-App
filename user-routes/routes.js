@@ -1,124 +1,55 @@
+//MODULES
 const express = require('express');
-const router = express.Router();
-const faker = require('faker');
+const mongoose = require('mongoose');
+
+//EXPRESS APP // EXPRESS ROUTER
 const app = express();
-console.log(app.locals.updates);
+const router = express.Router();
 
-router.get('/', function(req, res) {
-  res.render('login', {
-	  	page:'Login', menuId: ""
-	  	}
-	);
-	
-    res.end();
-});
+//MONGOOSE MODELS
+const {thread, blogPost} = require('../models');
 
-let statusUpdatesMock = [
-        {
-            id: "1111111",
-			profilePhoto:"files/profile-logo.png",
-            text: "Id accusamus eveniet voluptatem et mollitia et repudiandae.",
-            userName: "Jacklyn97",
-            publishedAt: "1:47 1/20/19"
-        },
-        {
-            id: "2222222",
-			profilePhoto:"files/profile-logo.png",
-            text: "Hic reiciendis et ea. Libero ipsum dicta enim autem quisquam et. Beatae qui optio et nam nihil. Soluta eum et quod quo quibusdam quod. Necessitatibus velit laborum possimus. Porro voluptatum laboriosam. Eos aliquam consectetur et odit non. Aperiam voluptatem dicta consequuntur quia autem. Corrupti quis quo eius modi voluptas aliquid veniam qui quasi. Illo eos exercitationem facere ex saepe incidunt. Illum minima ab maiores nisi porro eum temporibus. Deleniti perferendis cumque voluptatem accusamus. Et dolorum aperiam est magnam. Adipisci quod et itaque odit autem nihil.",
-            userName: "Jane Doe",
-            publishedAt: "2:43 1/23/19"
-        },
-        {
-            id: "333333",
-			profilePhoto:"files/profile-logo.png",
-            text: "Sit fugit est maiores in animi magni dolores consequatur.",
-            userName: "Jim Doe",
-            publishedAt: "1:30 1/30/19"
-        },
-        {
-            id: "4444444",
-			profilePhoto:"files/profile-logo.png",
-            text: "Sit fugit est maiores in animi magni dolores consequatur",
-            userName: "Jackie Doe",
-            publishedAt: "3:09 1/13/19"
-        }
-    ];
-
-let blogPosts = [
-        {
-            id: "1111111",
-			image:faker.image.nature(),
-			title:"Is it Okay to Not Feel Okay?",
-            text: "Hic reiciendis et ea. Libero ipsum dicta enim autem quisquam et. Beatae qui optio et nam nihil. Soluta eum et quod quo quibusdam quod. Necessitatibus velit laborum possimus. Porro voluptatum laboriosam. Eos aliquam consectetur et odit non. Aperiam voluptatem dicta consequuntur quia autem. Corrupti quis quo eius modi voluptas aliquid veniam qui quasi. Illo eos exercitationem facere ex saepe incidunt. Illum minima ab maiores nisi porro eum temporibus. Deleniti perferendis cumque voluptatem accusamus. Et dolorum aperiam est magnam. Adipisci quod et itaque odit autem nihil.",
-			links:"",
-            publishedAt: 1470016976609
-        },
-        {
-            id: "2222222",
-			image:faker.image.nature(),
-			title:"How to Manage When We Feel Overwhelmed",
-            text: "Eius sint sit labore quo perferendis eaque unde. Dolor quo blanditiis eos ratione. Ut repudiandae explicabo voluptate dolores ut fugiat animi. Nemo id minus omnis esse ipsa suscipit totam voluptatibus qui. Eos aspernatur dolorem qui ullam laudantium. Quam molestiae molestias quia. In odio dignissimos quo voluptas doloribus. Sint consequatur laudantium magnam qui at in. Eos amet et explicabo. Necessitatibus et quis enim quis harum fugiat. Autem culpa deserunt molestias. Sed dolorum eius aperiam. Molestiae minus impedit natus fugiat ea laudantium. Odio amet earum sed fugiat repellendus ullam eum. Dolorum fugiat enim eum reprehenderit. Facere totam qui sed dignissimos ea.",
-			links:"",
-            publishedAt: 1470012976609
-        },
-        {
-            id: "333333",
-			image:faker.image.nature(),
-			title:"Is it Okay to Walk Away From Your Career for the Sake of Your Mental Health?",
-            text: "Dolorem provident officiis. Non facilis adipisci saepe. Maiores illo fuga quisquam rerum soluta. Placeat et eveniet alias. Quam inventore corporis itaque nemo rem. Quas asperiores nihil. Dignissimos ipsa quod consequatur temporibus enim illum dolorem laboriosam. Dolore quae qui vitae non eum vel fugiat. Incidunt molestias ratione consequatur. Deserunt aut id sapiente sed ipsum temporibus nemo ducimus.",
-			links:"",
-            publishedAt: 1470011976609
-        },
-        {
-            id: "4444444",
-			image:faker.image.nature(),
-			title:"voluptas error illum",
-            text: "Exercitationem dolor illo et quas quasi in nesciunt maxime. Possimus voluptate maiores at illum explicabo consequatur quo occaecati rerum. Quo laboriosam quia ex commodi praesentium expedita pariatur alias fuga. Culpa rerum et necessitatibus quo quidem quisquam. Deleniti quia quae eum. Officia perferendis vel qui voluptas dolores nemo aliquam tenetur omnis. Ea omnis sunt nesciunt alias ut minima molestiae. Perspiciatis sequi sed voluptate ratione eos et sapiente. Voluptatum sunt aut molestiae officiis non provident porro pariatur. Eos provident iusto.",
-			links:"",
-            publishedAt: 1470009976609
-        }
-    ];
-
-let threads = [
+//MVP MOCK DATA
+const threads = [
 	{ 
 		title: "Anxiety",
-		threads: ["Generalized anxiety","Social anxiety", "Agoraphobia","Phobias","Panic disorder", "Separation anxiety"]
+		threads: ["Agoraphobia","Generalized anxiety","Panic disorder", "Phobias", "Separation anxiety","Social anxiety"]
 	},
 	{ 
 		title: "Bipolar Disorder",
-		threads: ["Mania", "Depressive episodes"]
+		threads: ["Depressive episodes","Mania" ]
 	},
 	{ 
 		title: "Neurodevelopmental Disorders",
-		threads: ["Intellectual developmental disorder","Global developmental delay", "Communication disorders", "Autism spectrum disorder", "Attention-deficit hyperactivity disorder"]
+		threads: ["Attention-deficit hyperactivity disorder" , "Autism spectrum disorder","Communication disorders","Intellectual developmental disorder","Global developmental delay"]
 	},
 	{
 		title: "Trauma and Stressor-Related Disorders",
-		threads: ["Acute stress disorder","Adjustment disorders","Post-traumatic stress disorder","Reactive attachment disorder "]
+		threads: ["Acute stress disorder","Adjustment disorders","Post-traumatic stress disorder","Reactive attachment disorder"]
 	},
 	{
 		title: "Dissociative Disorders",
-		threads: ["Dissociative amnesia", "Dissociative identity disorder", "Depersonalization/Derealization disorder"]
+		threads: ["Depersonalization/Derealization disorder", "Dissociative amnesia", "Dissociative identity disorder"]
 	},
 	{
 		title: "Somatic Symptom and Related Disorders",
-		threads: ["Somatic symptom disorder", "Illness anxiety disorder", "Conversion disorder","Factitious disorder"]
+		threads: ["Conversion disorder","Factitious disorder","Illness anxiety disorder","Somatic symptom disorder"]
 	},
 	{
 		title: "Feeding and Eating Disorders",
-		threads: ["Anorexia nervosa", "Bulimia nervosa","Rumination disorder", "Pica", "Binge-eating disorder"]
+		threads: ["Anorexia nervosa","Binge-eating disorder", "Bulimia nervosa", "Pica","Rumination disorder"]
 	},
 	{
 		title: "Sleep - Wake Disorders",
-		threads: ["Narcolepsy", "Insomnia disorder", "Hypersomnolence", "Breathing-related sleep disorders", "Parasomnias", "Restless legs syndrome"]
+		threads: [ "Breathing-related sleep disorders", "Hypersomnolence", "Insomnia disorder","Narcolepsy", "Parasomnias", "Restless legs syndrome"]
 	},
 	{
 		title: "Disruptive, Impulse-Control, and Conduct Disorders",
-		threads: ["Kleptomania", "Pyromania", "Intermittent explosive disorder", "Conduct disorder", "Oppositional defiant disorder "]
+		threads: ["Conduct disorder", "Intermittent explosive disorder", "Kleptomania",  "Oppositional defiant disorder", "Pyromania" ]
 	},
 	{
 		title: "Substance-Related and Addictive Disorders",
-		threads: ["Alcohol-related disorders", "Cannabis-related disorders", "Inhalant-use disorder", "Stimulant use disorder", "Tobacco use disorder", "Gambling disorder"]
+		threads: ["Alcohol-related disorders", "Cannabis-related disorders", "Gambling disorder", "Inhalant-use disorder", "Stimulant use disorder", "Tobacco use disorder"]
 	},
 	{
 		title: "Neurocognitive Disorders",
@@ -130,142 +61,226 @@ let threads = [
 		
 	}
 ]
-
 let mockTherapists = [
 	{
-		name: faker.name.findName(),
-		image: faker.image.avatar(),
-		bio: faker.lorem.sentences(),
+	firstName: 'Jackie',
+	lastName: 'Johnson',
+	profilePhoto: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+	bio: 'bio',
+	education: {
+		school: 'UCLA',
+		degrees: 'Masters in Psychology',
+		yearsAttended: '2010-2016'
 	},
-	{
-		name: faker.name.findName(),
-		image: faker.image.avatar(),
-		bio: faker.lorem.sentences(),
-	},
-	{
-		name: faker.name.findName(),
-		image: faker.image.avatar(),
-		bio: faker.lorem.sentences(),
-	},
-	{
-		name: faker.name.findName(),
-		image: faker.image.avatar(),
-		bio: faker.lorem.sentences(),
-	},
-	{
-		name: faker.name.findName(),
-		image: faker.image.avatar(),
-		bio: faker.lorem.sentences(),
-	},
-	{
-		name: faker.name.findName(),
-		image: faker.image.avatar(),
-		bio: faker.lorem.sentences(),
-	},
-	{
-		name: faker.name.findName(),
-		image: faker.image.avatar(),
-		bio: faker.lorem.sentences(),
-	},
-	{
-		name: faker.name.findName(),
-		image: faker.image.avatar(),
-		bio: faker.lorem.sentences(),
-	},
-	{
-		name: faker.name.findName(),
-		image: faker.image.avatar(),
-		bio: faker.lorem.sentences(),
+	specializations: ['Anxiety','Substance Abuse'],
+	contact: {
+		phoneNumber: '(626)-241-8889',
+		email: 'jackiejtherapy@gmail.com'
 	}
-];
-
-let mockFriends= [
-	{
-		userName: faker.internet.userName(),
-		profilePhoto:"/files/profile-logo.png",
-		posts: {
-            id: "1111111",
-			profilePhoto:"files/profile-logo.png",
-            text: "Id accusamus eveniet voluptatem et mollitia et repudiandae.",
-            userName: "Jacklyn97",
-            publishedAt: "1:47 1/20/19"
-        }
 	},
 	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
+	firstName: 'Steve',
+	lastName: 'Dogg',
+	profilePhoto: 'https://images.pexels.com/photos/936593/pexels-photo-936593.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+	bio: 'bio',
+	education: {
+		school: 'USC',
+		degrees: 'Masters in Psychology',
+		yearsAttended: '2010-2016'
+	},
+	specializations: ['Anxiety','Substance Abuse'],
+	contact: {
+		phoneNumber: '(626)-241-8889',
+		email: 'jackiejtherapy@gmail.com'
+	}
 	},
 	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
+	firstName: 'Steve',
+	lastName: 'Dogg',
+	profilePhoto: '',
+	bio: 'bio',
+	education: {
+		school: 'USC',
+		degrees: 'Masters in Psychology',
+		yearsAttended: '2010-2016'
 	},
-	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
-	},
-	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
-	},
-	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
-	},
-	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
-	},
-	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
-	},
-	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
-	},
-	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
-	},
-	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
-	},
-	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
-	},
-	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
-	},
-	{
-		name: faker.internet.userName(),
-		profilePhoto:"files/profile-logo.png"
+	specializations: ['Anxiety','Substance Abuse'],
+	contact: {
+		phoneNumber: '(626)-241-8889',
+		email: 'jackiejtherapy@gmail.com'
+	}
 	}
 ];
 
 
-router.get('/home', function(req, res) {
-  res.render('home', {page:'home', menuId:'home',statusUpdatesMock, blogPosts});
-    if(res.status = 200) {
-        console.log('home route working');
-    }
-});
 
-router.get('/blog', function(req, res) {
-	res.render('blog', {page:'blog', menuId:'blog', blogPosts});
-    if(res.status = 200) {
-        console.log('blog route working');
-    }
+//ROUTE TO LOGIN
+router.get('/login', function(req, res, next) {
+	res.render('login', {page:'login'})
+	.catch(next)
 });
 
 
-router.get('/threads', function(req, res) {
-	res.render('threads', {page:'threads', menuId:'threads', threads});
-    if(res.status = 200) {
-        console.log('threads route working');
-    }
+//ROUTE TO HOME
+router.get('/home', function(req, res, next) {
+	blogPost.find(function(err, post) {
+		res.render('home', {page:'home', post})
+	})
+	.catch(next)
+});
+
+
+//ROUTE TO BLOG
+router.get('/blog', function(req, res, next) {
+	blogPost.find( function(err, post) {
+		res.render('blog',{page:'blog', post})
+	})
+	.catch(next)
+});
+
+
+//ROUTE TO THREADS LIST
+router.get('/threads', function(req,res, next) {
+	res.render('threads',{page:'threads', threads})
+	.catch(next)
+})
+
+
+//ROUTE TO SELECTD THREAD
+router.get('/threads/:permalink', function(req, res, next) {
+	const permalink = req.params;
+	
+	thread.findOne(permalink).then(function(post) {
+		res.render('thread', {page: post.title, post})
+	})
+	.catch(next)
+}) 
+
+
+//POST THREAD POST
+router.post('/threads/:permalink', function(req, res, next) {
+	const permalink = req.params;
+	
+	let threadPost ={
+			"title": req.body.title,
+			"username": req.body.username,
+			"uid": req.body.uid,
+			"content": req.body.content,
+			"comments": []
+	};
+	
+	thread.findOne(permalink, function(err, doc) {
+		doc.threadPosts.push(threadPost);
+		doc.save(function(err) {
+			if(err) return next(err)
+			return res.send(doc)
+		});
+	});
+});
+
+
+//UPDATE POST LIKE
+router.put('/threads/:permalink/:id', function(req, res, next) {
+
+	let userLike = {
+		uid: req.body.uid
+	};
+	
+	let uid = req.body.uid;
+	let permalink = req.body.permalink;
+	let postId = req.body._id;
+	
+	
+	thread.find({ permalink: permalink },
+		{ threadPosts: { $elemMatch: { _id: postId } } } ,function(err, post) {
+		if (err) {
+			next
+		} else {
+			let userList = []
+		
+			let likeList = post[0].threadPosts[0].likes;
+			for(let i = 0; i < likeList.length; i++) {
+				userList.push(likeList[i].uid);
+			};
+		
+			if(userList.length === likeList.length){
+			
+				var userMatches = userList.every(findMatches);
+			
+				function findMatches(value, index, array) {
+  					return value != uid;
+				}
+			}
+			if(userMatches == false){
+				console.log('user already liked post')
+			} else { 
+				addLike();
+			}
+			function addLike() {
+				thread.findOneAndUpdate({ permalink: req.body.permalink,
+     			'threadPosts._id': req.body._id },
+    			{ $push: { 'threadPosts.$.likes': userLike }},{ new: true }, function(err, post){
+				if (err) {
+					res.send(err);
+				} else {
+					res.send(post)
+				}
+				})
+			};
+		}
+	});
+});
+
+
+//DELETE THREAD POST
+router.delete('/threads/:permalink/:id', function(req, res, next) {
+	let user = req.body.uid;
+	let postId = req.body._id;
+	let permalink = req.body.permalink;
+	
+	
+	
+	thread.find({permalink: permalink},
+				{ threadPosts: { $elemMatch: { _id: postId } } } , function(err, post) {
+	if (err) {
+		console.log(err)
+	} else{
+		console.log(post[0].threadPosts[0].uid);
+		validateUser(post[0].threadPosts[0].uid);
+	}
+	});
+	
+	
+	function validateUser(uid) {
+		if(uid === user) {
+			console.log('correct user')
+			thread.update(
+					{ "permalink": permalink },
+  					{ $pull: { "threadPosts": { "_id": postId } } }, { 'new': true }, function(err, post) {
+			if (err) {
+				next
+			} else {
+				res.send(post)
+			}
+			});
+			} else {
+				console.log('wrong user')
+			}
+	};
+});
+
+//ROUTE TO THERAPISTS
+router.get('/therapists', function(req, res, next) {
+	res.render('therapists', { page:'therapists', mockTherapists })
+  	.catch(next)
+});
+
+//FULL APP FEATURE
+/*
+router.get('/therapists/:id', function(req, res, next) {
+	res.render('therapistprofile', { page:'profile' })
+   	.catch(next)
+
 });
 
 router.get('/users', function(req, res) {
@@ -282,21 +297,8 @@ router.get('/users/:id', function(req, res) {
         console.log('users:id route working');
     }
 });
+*/
 
-
-router.get('/therapists', function(req, res) {
-	res.render('therapists', {page:'therapists', menuId:'therapists', mockTherapists});
-    if(res.status = 200) {
-        console.log('therapists route working');
-    }
-});
-
-router.get('/therapists/:id', function(req, res) {
-	res.render('therapistprofile', {page:'profile', menuId:'profile', });
-    if(res.status = 200) {
-        console.log('therapists:id route working');
-    }
-});
 
 
 

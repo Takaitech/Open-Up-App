@@ -1,35 +1,36 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 	<head>
  		<% include partials/head %> 
 	</head>
     <body>
 		<header>
 		<% include partials/header %>
-		<input type="image" class="postUpdate" src="files/Icons/note.png">
+		<img class='pageTitle' src='/files/MENU/Home.png'>
+		<input type='image' class='postUpdate' src='files/Icons/note.png'>
+		<a href='http://localhost:8080/' class='grey-text' id='logout'>Logout</a>
 		</header>
+		
 		<% include partials/menu %>
 		<main>
-			<section id="feed">
-				<% statusUpdatesMock.forEach(function(updates){ %>
-				<div class="post">
-					<div class="userThumbnail">
-						<img class="profilePhoto" src="<%= updates.profilePhoto %>">
-						<p class="userName"><%= updates.userName %></p>
-					</div>
-					<div id="statusUpdate">
-						<p class="postContent"><%= updates.text %></p> 
-						<p class="postTime"><%= updates.publishedAt %></p>
-					</div>
+			<div id='input-username' class='hidden'>
+					<div class='input-field'>
+          				<label for='signup-username'>Enter Display Name</label>
+          				<input type='username' id='signup-username' required />
+						<button class='updateDisplayName' type='submit'></button>
+        			</div>
+			</div>
+			<section id='feed'>
+				<% post.forEach(function(posts){ %>
+				<h2 class='postTitle'><%= posts.title %></h2>
+				<div id='blogPost'>					
+					<img class='postImage' src='<%= posts.image %>'>
+					<p class='postContent'><%= posts.text %></p> 
+					<p class='postTime'><%= posts.publishedAt %></p>
 				</div>
-    			<% }); %>
-				<% blogPosts.forEach(function(posts){ %>
-				<h2 class="postTitle"><%= posts.title %></h2>
-				<div id=blogPost>					
-					<img class="postImage" src="<%= posts.image %>">
-					<p class=postContent><%= posts.text %></p> 
-					<p class=postTime><%= posts.publishedAt %></p>
+				<div id='postInteraction'>
+						<input class='postButtons' type='image' src='/files/Icons/heart.png'>
 				</div>
     			<% }) %>
 			</section>
@@ -37,5 +38,27 @@
 		<% include partials/ads %>
 		</main>
 		<% include partials/script %>
+		<script>
+			setTimeout(
+			function wait() {
+			var user = firebase.auth().currentUser;
+			console.log(user.displayName);
+			if(user.displayName === null) {
+				$('#input-username').removeClass('hidden');
+				
+			}
+			}, 2000);
+			
+			$('.updateDisplayName').on('click', event => {
+				
+				var user = firebase.auth().currentUser;
+				let username = $('#signup-username').val();
+				user.updateProfile({
+  				displayName: username
+				});
+				console.log(user)
+			})
+			
+		</script>
     </body>
 </html>

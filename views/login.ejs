@@ -1,18 +1,56 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 	<head>
  		<% include partials/head %> 
-		
 	</head>
     <body>
-		<a href="http://localhost:8080/home"><img class="logo" src="/files/logo.png"></a>
-		<a href=""><img class="facebook" src="/files/login-button-png-18039.png"></a>
-		<img class="hexagon-one" src="/files/hex-left.png">
-		<img class="hexagon-two" src="/files/hex-middle.png">
-		<img class="hexagon-three" src="/files/hex-right.png">
-		
+	<% include partials/header %>
+		<img class='hexagonone' src='/files/hex-left.png'>
+		<img class='hexagontwo' src='/files/hex-middle.png'>
+		<!--<form>
+			<fieldset>
+				<legend>Thinkful Demo Account Sign Up</legend>
+					<label for="email" >EMAIL</label>
+					<input id="email" type="text" placeholder="EMAIL">
+					<label for="username" >USERNAME</label>
+					<input id="username" type="text" placeholder="USERNAME">
+					<button id="signIn" type="submit">LOG IN</button>
+			</fieldset>
+		</form> -->
+		<div id='login'>
+			<div>
+    			<h4>Login</h4><br />
+      			<form id='login-form'>
+        			<div class='input-field'>
+          				<label for='login-email'>Email address</label>
+          				<input type='email' id='login-email' required />
+        			</div>
+        			<div class='input-field'>
+						<label for='login-password'>Your password</label>
+          				<input type='password' id='login-password' required />
+        			</div>
+        			<button class='btn yellow darken-2 z-depth-0'>Login</button>
+      			</form>
+    		</div>
+			<button class='signUpLink'>Sign up</button>
+		</div>
+		<div id='signup' class='hidden'>
+    		<div>
+    			<h4>Sign up</h4><br />
+				<form id='signup-form'>
+        			<div class='input-field'>
+          				<label for='signup-email'>Email address</label>
+          				<input type='email' id='signup-email' required />
+        			</div>
+        			<div class='input-field'>
+          				<label for='signup-password'>Choose password</label>
+          				<input type='password' id='signup-password' required />
+        			</div>
+        			<button class='btn yellow darken-2 z-depth-0'>Sign up</button>
+      			</form>
+    		</div>
+  		</div>
+		<img class='hexagonthree' src='/files/hex-right.png'>
 		<% include partials/script %>
-		
-		<script type="text/javascript" src="/js/auth.js"></script>
-    </body>
+	</body>
 </html>
