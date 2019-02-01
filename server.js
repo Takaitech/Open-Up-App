@@ -18,7 +18,7 @@ app.use(morgan('common'));
 
 //Routes/Config
 app.use('/', userRoutes);
-const {PORT, DATABASE_URL} = require('./config');
+const {PORT, DATABASE_URL, TEST_DATABASE_URL} = require('./config');
 const {user} = require('./models');
 
 
