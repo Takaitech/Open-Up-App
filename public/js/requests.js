@@ -46,16 +46,16 @@ $('.likePost').on('click', event => {
 	event.preventDefault();
 
 	
-var user = firebase.auth().currentUser;
-let permalink = window.location.href.split('/')[4];
-let postId = $(event.currentTarget).closest('div').parent().parent().attr('id');
-let url =`/threads/${permalink}/${postId}`;
-	
-let update = {
-	_id: postId,
-	permalink: permalink,
-	uid: user.uid
-}
+	var user = firebase.auth().currentUser;
+	let permalink = window.location.href.split('/')[4];
+	let postId = $(event.currentTarget).closest('div').parent().parent().attr('id');
+	let url =`/threads/${permalink}/${postId}`;
+
+	let update = {
+		_id: postId,
+		permalink: permalink,
+		uid: user.uid
+	}
 
 	$.ajax({
 		type: 'PUT',
@@ -78,17 +78,17 @@ $('.deletePost').on('click', event => {
 	event.preventDefault();
 
 	
-var user = firebase.auth().currentUser;
-let permalink = window.location.href.split('/')[4];
-let postId = $(event.currentTarget).closest('div').parent().parent().attr('id');
-let url =`/threads/${permalink}/${postId}`;
-console.log(postId);
-let update = {
-	_id: postId,
-	permalink: permalink,
-	uid: user.uid
-}
-console.log(update);
+	var user = firebase.auth().currentUser;
+	let permalink = window.location.href.split('/')[4];
+	let postId = $(event.currentTarget).closest('div').parent().parent().attr('id');
+	let url =`/threads/${permalink}/${postId}`;
+	console.log(postId);
+	let update = {
+		_id: postId,
+		permalink: permalink,
+		uid: user.uid
+	}
+	console.log(update);
 
 
 	
