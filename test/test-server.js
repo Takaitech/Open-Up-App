@@ -233,7 +233,7 @@ describe("Page Routes", function() {
     
   it("Sign in route should exist", function() {
     return chai.request(app)
-      .get("/login")
+      .get("/")
       .then(function(res) {
         expect(res).to.have.status(200);
       });
