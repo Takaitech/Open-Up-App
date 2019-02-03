@@ -41,7 +41,6 @@ app.use(function(err,req,res,next) {
 })
 
 
-
 let server;
 
 function runServer(databaseUrl = DATABASE_URL, port = PORT) {

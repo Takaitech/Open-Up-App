@@ -115,7 +115,7 @@ let mockTherapists = [
 
 
 //ROUTE TO LOGIN
-router.get('/login', function(req, res, next) {
+router.get('/', function(req, res, next) {
 	return res.render('login', {page:'login'})
 	.catch(next)
 });
