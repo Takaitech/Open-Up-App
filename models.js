@@ -37,7 +37,8 @@ const threadSchema = mongoose.Schema({
 const blogPostSchema = mongoose.Schema({
 	title: {type: String, required: true, trim: true},
 	image: {type: String, required: true},
-    content: {type:String, required: true ,trim: true},
+    content: {type:String, required: true},
+	"regards":{type:String},
 	links: {type: String, trim: true},
     publishedAt: {type: Date, default: Date.now},
 	comments: [{	
@@ -46,7 +47,7 @@ const blogPostSchema = mongoose.Schema({
 			publishedAt: {type: Date, default: Date.now},
 			likes: [ {
 				uid: {type: String}
-		}],
+			}]
 	}]
 });
 
@@ -74,8 +75,8 @@ const therapistSchema = mongoose.Schema({
 
 //const user = mongoose.model("user", userSchema);
 const thread = mongoose.model('thread', threadSchema);
-const blogPost = mongoose.model('blog', blogPostSchema);
+const blog = mongoose.model('blog', blogPostSchema);
 
 //module.exports = {thread};
 //module.exports = user;
-module.exports = {blogPost, thread};
+module.exports = {blog, thread};

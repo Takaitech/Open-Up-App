@@ -47,7 +47,7 @@ $('#signup-form').submit( event => {
 //logout
 $('#logout').on('click', event => {
 	event.preventDefault();
-	window.location.replace('http://localhost:8080/login')
+	window.location.replace('http://localhost:8080/')
 	auth.signOut()
 })
 
