@@ -170,33 +170,26 @@ main {
 
 .therapistsPhoto {
 	height: 200px;
-	margin-bottom: 30px;
-	margin-right: 70px;
 	border-radius: 13px;
+	border:4px white solid;
 }
 
 
 .crop {
 	height: 200px;
-	width: 200px;
 	overflow: hidden;
 
 }
 
 
-.therapistName {
-	text-align: center;
-}
-
-
 .therapistsCard {
-	display: inline-block;
-	margin:30px;
-	width: 20%;
+	float:left;
 	text-align: center;
-	float: left;
+	margin-top: 30px;
+	margin-bottom: 45px;
+	width: 200px;
+	
 }
-
 
 .hexagonone {
 	height: 200px;
@@ -580,6 +573,11 @@ a {
 
 .specs {
 	font-size: 10px;
+}
+
+.therapistInfo {
+	width: 100px;
+	display: inline-block;
 }
 
 
