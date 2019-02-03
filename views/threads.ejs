@@ -8,7 +8,7 @@
 		<header>
 		<% include partials/header %>	
 		<img class='pageTitle' src='/files/MENU/Threads.png'>
-		<a href='http://localhost:8080/' class='grey-text' id='logout'>Logout</a>
+		<a href='https://open-up-app.herokuapp.com/' class='grey-text' id='logout'>Logout</a>
 		</header>
 		<% include partials/menu %>
 		<main class='noScroll'>
@@ -20,7 +20,7 @@
 					</button>
 					<ul class='threadList' id='<%=threads[i].title %>Container'>
 						<% threads[i].threads.forEach(function(values) {%>
-						<a id='threadLink' class='hidden' href='http://localhost:8080/threads/<%=values.split(" ").join("-").toLowerCase();%>'><li class='thread'><%=values%></li></a>
+						<a id='threadLink' class='hidden' href='https://open-up-app.herokuapp.com/threads/<%=values.split(" ").join("-").toLowerCase();%>'><li class='thread'><%=values%></li></a>
 						<% }); %>
 					</ul>
 				</div>
