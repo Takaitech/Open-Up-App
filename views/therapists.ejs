@@ -5,22 +5,24 @@
  		<% include partials/head %> 
 	</head>
     <body>
-		<header>
+		<header role='banner'>
 		<% include partials/header %>
-		<img class='pageTitle' src='/files/MENU/Therapists.png'>
+		<img class='pageTitle' src='/files/MENU/Therapists.png' alt='Therapists Page'>
 		<a href='https://open-up-app.herokuapp.com/' class='grey-text' id='logout'>Logout</a>	
 		</header>
 		<% include partials/menu %>
-		<main>
+		<main role='main'>
 			<section id='therapists'>
+				<div id="overlay">
+				<h1 class="comingSoon">THERAPISTS AVAILABLE SOON</h1>
+				</div> 
 				<% mockTherapists.forEach(function(therapists){ %>
 				<div class='therapistsCard'>
-				<p ><%=`${therapists.firstName} ${therapists.lastName}` %></p>
-				<div class='crop'>
-					<img class='therapistsPhoto' src='<%= therapists.profilePhoto%>'>
-				</div>
-				<p ><%= therapists.bio %></p>
-				<p><%= therapists.education.school %></p>
+					<span class='therapistName'><%=`${therapists.firstName} ${therapists.lastName}` %></span>
+					<div class='crop'>
+						<img class='therapistsPhoto' src='<%= therapists.profilePhoto%>' alt='Therapist Image'>
+					</div>
+					<span class='specs'><%= therapists.specializations%></span>
 				</div>
     			<% }) %>
 			</section>

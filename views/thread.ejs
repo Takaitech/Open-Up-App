@@ -4,13 +4,13 @@
  		<% include partials/head %> 
 	</head>
     <body>
-		<header>
+		<header role='banner'>
 		<% include partials/header %>
-		<img class='pageTitle' src='/files/MENU/Threads.png'>
+		<img class='pageTitle' src='/files/MENU/Threads.png' alt='Threads Page'>
 		<a href='https://open-up-app.herokuapp.com/' class='grey-text' id='logout'>Logout</a>
 		</header>
 		<% include partials/menu %>
-		<main>
+		<main role='main'>
 			<section id='feed'>
 				<a href='http://localhost:8080/threads'><strong class='subTitle'><%=post.category%> ></strong></a>
 				<h1 class='threadTitle'><%=post.title%></h1>
@@ -37,11 +37,6 @@
 						<input class='likePost' id='postButtons' type='image' src='/files/Icons/like.png'>
 								<span class='tooltiptext'>like Post</span>
 						</div>
-						<!--FULL APP FEATURE
-						<div class="tooltip">
-						<input class='commentOnPost'id="postButtons" type="image" src="/files/Icons/note.png">
-								<span class="tooltiptext">Delete Post</span>
-						</div> -->
 						<div class='tooltip'>
 							<input  class='deletePost' id='postButtons' type='image' src='/files/Icons/ban.png'>
   							<span class='tooltiptext'>Delete Post</span>
