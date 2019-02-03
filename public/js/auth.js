@@ -36,7 +36,7 @@ $('#signup-form').submit( event => {
 	//sign up the user
 	auth.createUserWithEmailAndPassword(email,password)
 	.then(cred => {
-		window.location.href='http://localhost:8080/home'
+		window.location.href='https://open-up-app.herokuapp.com/home'
 		$('#signup-Form').trigger('reset')
 	})
 	
@@ -47,7 +47,7 @@ $('#signup-form').submit( event => {
 //logout
 $('#logout').on('click', event => {
 	event.preventDefault();
-	window.location.replace('http://localhost:8080/')
+	window.location.replace('https://open-up-app.herokuapp.com')
 	auth.signOut()
 })
 
@@ -59,7 +59,7 @@ $('#login-form').submit(event => {
 	const password = $('#login-password').val();
 	
 	auth.signInWithEmailAndPassword(email,password).then(cred => {
-		window.location.href='http://localhost:8080/home'
+		window.location.href='https://open-up-app.herokuapp.com/home'
 		$('#login-Form').trigger('reset');
 	})
 	.catch(err => {
