@@ -128,8 +128,9 @@ main {
 
 
 .postImage {
-	width: 100%;
+	width: 80%;
 	padding: 20px;
+	border-radius: 70px;
 }
 
 
@@ -144,7 +145,7 @@ main {
 	border-radius: 13px;
 	margin:10px 0px;
 	color: black;
-	text-align: left
+	text-align: center;
 }
 
 
@@ -217,7 +218,7 @@ main {
 	height: 250px;
 	position: absolute;
 	right:20px;
-	bottom: -10px;
+	bottom: -15px;
 }
 
 
@@ -582,3 +583,26 @@ a {
 }
 
 
+@media only screen and (max-width: 500px) {
+	
+	*{
+		
+	font-size: 10px;
+	}
+	
+.hexagonone {
+	height: 150px;
+	position: fixed;
+	left: 100px;
+	top: 40px;
+}
+
+
+.hexagontwo {
+	height: 150px;
+	right: 10px;
+	top:80px;
+	position: absolute;
+}
+	
+}
