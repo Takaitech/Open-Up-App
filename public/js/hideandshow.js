@@ -17,6 +17,9 @@ $('.signUpLink').on('click', event => {
 	$('#login').addClass('hidden');
 })
 
+$('.updateDisplayName').on('click', event => {
+	$('#input-username').addClass('hidden');
+})
 
 function getuser() {
 	var user = firebase.auth().currentUser;

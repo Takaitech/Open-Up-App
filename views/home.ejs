@@ -8,7 +8,7 @@
 		<header>
 		<% include partials/header %>
 		<img class='pageTitle' src='/files/MENU/Home.png'>
-		<input type='image' class='postUpdate' src='files/Icons/note.png'>
+		
 		<a href='http://localhost:8080/' class='grey-text' id='logout'>Logout</a>
 		</header>
 		
@@ -18,7 +18,7 @@
 					<div class='input-field'>
           				<label for='signup-username'>Enter Display Name</label>
           				<input type='username' id='signup-username' required />
-						<button class='updateDisplayName' type='submit'></button>
+						<button class='updateDisplayName' type='submit'>Submit</button>
         			</div>
 			</div>
 			<section id='feed'>
@@ -26,12 +26,11 @@
 				<h2 class='postTitle'><%= posts.title %></h2>
 				<div id='blogPost'>					
 					<img class='postImage' src='<%= posts.image %>'>
-					<p class='postContent'><%= posts.text %></p> 
+					<p class='postContent'><%= posts.content %></p> 
+					<p class='postRegards'><%= posts.regards %></p> 
 					<p class='postTime'><%= posts.publishedAt %></p>
 				</div>
-				<div id='postInteraction'>
-						<input class='postButtons' type='image' src='/files/Icons/heart.png'>
-				</div>
+				
     			<% }) %>
 			</section>
 			

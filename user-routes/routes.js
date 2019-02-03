@@ -7,7 +7,7 @@ const app = express();
 const router = express.Router();
 
 //MONGOOSE MODELS
-const {thread, blogPost} = require('../models');
+const {thread, blog} = require('../models');
 
 //MVP MOCK DATA
 const threads = [
@@ -123,8 +123,9 @@ router.get('/', function(req, res, next) {
 
 //ROUTE TO HOME
 router.get('/home', function(req, res, next) {
-	return blogPost.find( function( err, post ) {
+	return blog.find( function( err, post ) {
     if( !err ) {
+		console.log(post)
         res.render('home',{page:'blog', post})
     } else {
         return console.log( err );
@@ -135,7 +136,7 @@ router.get('/home', function(req, res, next) {
 
 //ROUTE TO BLOG
 router.get('/blog', function(req, res, next) {
-	return blogPost.find( function( err, post ) {
+	return blog.find( function( err, post ) {
     if( !err ) {
         res.render('home',{page:'blog',post })
     } else {
@@ -275,11 +276,13 @@ router.delete('/threads/:permalink/:id', function(req, res, next) {
 	};
 });
 
+
 //ROUTE TO THERAPISTS
 router.get('/therapists', function(req, res, next) {
 	return res.render('therapists', { page:'therapists', mockTherapists })
   	.catch(next)
 });
+
 
 //FULL APP FEATURE
 /*
