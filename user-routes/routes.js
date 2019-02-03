@@ -116,32 +116,38 @@ let mockTherapists = [
 
 //ROUTE TO LOGIN
 router.get('/login', function(req, res, next) {
-	res.render('login', {page:'login'})
+	return res.render('login', {page:'login'})
 	.catch(next)
 });
 
 
 //ROUTE TO HOME
 router.get('/home', function(req, res, next) {
-	blogPost.find(function(err, post) {
-		res.render('home', {page:'home', post})
-	})
-	.catch(next)
+	return blogPost.find( function( err, post ) {
+    if( !err ) {
+        res.render('home',{page:'blog', post})
+    } else {
+        return console.log( err );
+    }
+	});
 });
 
 
 //ROUTE TO BLOG
 router.get('/blog', function(req, res, next) {
-	blogPost.find( function(err, post) {
-		res.render('blog',{page:'blog', post})
-	})
-	.catch(next)
+	return blogPost.find( function( err, post ) {
+    if( !err ) {
+        res.render('home',{page:'blog',post })
+    } else {
+        return console.log( err );
+    }
+	});
 });
 
 
 //ROUTE TO THREADS LIST
-router.get('/threads', function(req,res, next) {
-	res.render('threads',{page:'threads', threads})
+router.get('/threads', function(req, res, next) {
+	return res.render('threads',{page:'threads', threads})
 	.catch(next)
 })
 
@@ -151,7 +157,7 @@ router.get('/threads/:permalink', function(req, res, next) {
 	const permalink = req.params;
 	
 	thread.findOne(permalink).then(function(post) {
-		res.render('thread', {page: post.title, post})
+	return res.render('thread', {page: post.title, post})
 	})
 	.catch(next)
 }) 
@@ -254,7 +260,7 @@ router.delete('/threads/:permalink/:id', function(req, res, next) {
 	function validateUser(uid) {
 		if(uid === user) {
 			console.log('correct user')
-			thread.update(
+			thread.updateOne(
 					{ "permalink": permalink },
   					{ $pull: { "threadPosts": { "_id": postId } } }, { 'new': true }, function(err, post) {
 			if (err) {
@@ -271,7 +277,7 @@ router.delete('/threads/:permalink/:id', function(req, res, next) {
 
 //ROUTE TO THERAPISTS
 router.get('/therapists', function(req, res, next) {
-	res.render('therapists', { page:'therapists', mockTherapists })
+	return res.render('therapists', { page:'therapists', mockTherapists })
   	.catch(next)
 });
 

@@ -1,31 +1,33 @@
 /*GLOBAL */
 * {
-  box-sizing: border-box;
-}
-
-html, body {
-  overflow: hidden;
-}
-
-body.noScroll { /* ...or body.dialogShowing */
-  overflow: hidden;
-}
-
-* {
+	box-sizing: border-box;
 	margin: 0;
 	font-family: 'Nunito', sans-serif;
-
 }
+
+
+html, body {
+	overflow: hidden;
+}
+
+
+body.noScroll {
+	overflow: hidden;
+}
+
+
 /* HEADER/MENU */
 header {
 	height: 70px;
 	z-index: 1; 
-	
 }
+
+
 body {
 	color: white;
 	background-color: rgb(141,158,143);
 }
+
 
 #navLinks {
 	list-style: none;
@@ -34,17 +36,16 @@ body {
 	left: -30px;
 }
 
+
 .link {
 	width: 100px;
 	box-sizing: border-box;
 	float: left;
-	
 }
 
 
 .link:hover ~ .hoverIcon {
-	visibility: visible;
-	
+	visibility: visible;	
 }
 
 
@@ -59,11 +60,14 @@ body {
 	border-bottom: solid 2px white;
 	width: 140px;
 }
+
+
 /*--------------------------------------------*/
 
 main {
 	margin-left: 200px;
 }
+
 
 #feed {
 	width: 80%;
@@ -78,18 +82,21 @@ main {
 	overflow: scroll;
 }
 
+
 .userThumbnail {
 	width: 15%;
-	
 }
+
 
 .profilePhoto {
 	width: 100px;
 }
 
+
 .post {
 	margin-top: 15px;
 }
+
 
 #statusUpdate{
 	max-width: 80%%;
@@ -97,8 +104,8 @@ main {
 	border-radius: 13px;
 	padding: 20px;
 	color: black;
-	
 }
+
 
 #rightWindow {
 	width: 18%;
@@ -111,15 +118,16 @@ main {
 }
 
 
-
 .postImage {
 	width: 100%;
 	padding: 20px;
 }
 
+
 .postTitle{
 	font-size: 50px;
 }
+
 
 #blogPost {
 	background-color: white;
@@ -130,15 +138,18 @@ main {
 	text-align: left
 }
 
+
 .postContent {
 	padding:20px;
 	font-weight: normal;
 }
 
+
 .postTime {
 	text-align: right;
 	padding: 10px;
 }
+
 
 .category {
 	height: 50px;
@@ -146,17 +157,19 @@ main {
 	
 }
 
+
 .therapistsPhoto {
 	height: 200px;
 }
 
-.crop {
 
- height: 200px;
- width: 200px;
- overflow: hidden;
+.crop {
+	height: 200px;
+	width: 200px;
+	overflow: hidden;
 
 }
+
 
 .therapistsCard {
 	display: inline-block;
@@ -164,21 +177,23 @@ main {
 	width: 25%;
 }
 
+
 .hexagonone {
 	height: 200px;
 	position: fixed;
 	left: 100px;
 	top: 40px;
-	
 }
+
 
 .hexagontwo {
 	height: 225px;
-	
 	right: 20px;
 	top:80px;
 	position: absolute;
 }
+
+
 .hexagonthree {
 	height: 250px;
 	position: absolute;
@@ -193,6 +208,7 @@ main {
 	position: fixed;
 	z-index: 1; 
 }
+
 
 .facebook {
 	position: fixed;
@@ -213,12 +229,14 @@ main {
 	background-color: rgb(141,158,143);
 }
 
+
 .userCard {
 	float:left;
 	padding: 30px;
 	width: 25%;
 	text-align: center;
 }
+
 
 #friends {
 	width: 75%;
@@ -229,7 +247,6 @@ main {
 	float: left;
 	height: 600px;
 	overflow: scroll;
-	
 }
 
 
@@ -240,6 +257,7 @@ main {
 	left: 700px;
 }
 
+
 #threadContainer {
 	margin-top: 10px;
 	width: 100%;
@@ -248,6 +266,7 @@ main {
 	border-top-left-radius: 20px;
     vertical-align: middle;
 }
+
 
 #threadsList, #therapists, #profile{
 	width: 80%;
@@ -260,10 +279,12 @@ main {
 	float: left;
 }
 
+
 #profile {
 	text-align: center;
 	
 }
+
 
 .threadButton {
 	width: 100%;
@@ -277,8 +298,6 @@ main {
 	padding: 10px;
 	font-size: 30px;
 	font-weight: bold
-	
-	
 }
 
 
@@ -292,8 +311,8 @@ main {
 	list-style: none;
 	padding: 5px;
 	margin-left: 5%;
-	
 }
+
 
 .openIcon {
 	height:50px;
@@ -301,9 +320,12 @@ main {
 	text-align: right;
 }
 
+
 .hidden{
 	display: none;
 }
+
+
 #adContainer {
 	background-color: darkgrey;
 	margin: 10px;
@@ -311,10 +333,12 @@ main {
 	border-radius: 13px;
 }
 
+
 .adImage {
 	height: 100%;
 	border-radius: 13px;
 }
+
 
 .pageTitle {
 	height: 20px;
@@ -323,9 +347,11 @@ main {
 	top: 50px;
 }
 
+
 #profile {
 	padding: 20px;
 }
+
 
 #postInteraction{
 	background-color: rgb(51,51,51);
@@ -336,6 +362,7 @@ main {
 	margin-left: 20px;
 }
 
+
 #postButtons {
 	height: 17px;
 	margin-left:10px;
@@ -343,28 +370,35 @@ main {
 
 
 input, button {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
+	font-family: 'Nunito', sans-serif;
+	font-weight: 700;
 }
+
 
 .subTitle {
 	color:rgb(170,180,170);
 }
 
+
 .threadTitle {
 	display: inline-block;
 }
 
+
 a {
     text-decoration: none !important;
 }
+
+
 .initPostTitle{
 	text-align: center;
 }
 
+
 .openUp {
 	font-size: 30px;
 }
+
 
 .init{
 	border: 4px rgb(170,180,170) solid;
@@ -372,9 +406,9 @@ a {
 	border-radius: 13px;
 }
 
+
 #login {
 	color: rgb(141,158,143);
-	
 	height: 225px;
 	width: 200px;
 	background-color: white;
@@ -384,6 +418,7 @@ a {
 	padding: 20px;
 	margin-top: 250px;
 }
+
 
 #signup {
 	color: rgb(141,158,143);
@@ -397,15 +432,15 @@ a {
 	margin-top: 250px;
 }
 
+
 #logout{
 	position:  absolute;
 	top: 45px;
 	right:50px;
 	color: white;
 	font-size: 15px;
-	
-
 }
+
 
 #input-username {
 	position: absolute;
@@ -421,53 +456,57 @@ a {
 	font-size: 10px;
 }
 
+
 .post {
 	margin-bottom: 10px;
 }
 
+
 /* Tooltip container */
 .tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+	position: relative;
+	display: inline-block;
 }
+
 
 /* Tooltip text */
 .tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  padding: 5px 0;
-  border-radius: 6px;
+ 	visibility: hidden;
+  	width: 120px;
+ 	background-color: #555;
+  	color: #fff;
+  	text-align: center;
+  	padding: 5px 0;
+  	border-radius: 6px;
 
-  /* Position the tooltip text */
-  position: absolute;
-  z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -60px;
+  	/* Position the tooltip text */
+  	position: absolute;
+  	z-index: 1;
+  	bottom: 125%;
+  	left: 50%;
+  	margin-left: -60px;
 
-  /* Fade in tooltip */
-  opacity: 0;
-  transition: opacity 0.3s;
+  	/* Fade in tooltip */
+  	opacity: 0;
+  	transition: opacity 0.3s;
 }
+
 
 /* Tooltip arrow */
 .tooltip .tooltiptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
+  	content: "";
+  	position: absolute;
+  	top: 100%;
+  	left: 50%;
+  	margin-left: -5px;
+  	border-width: 5px;
+  	border-style: solid;
+  	border-color: #555 transparent transparent transparent;
 }
+
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
+  	visibility: visible;
+  	opacity: 1;
 }

@@ -18,7 +18,7 @@ app.use(morgan('common'));
 
 //Routes/Config
 app.use('/', userRoutes);
-const {PORT, DATABASE_URL, TEST_DATABASE_URL} = require('./config');
+const {PORT, DATABASE_URL} = require('./config');
 const {user} = require('./models');
 
 
@@ -36,7 +36,7 @@ app.use(express.static(path.join(__dirname,'public' )));
 //error handling middleware 
 app.use(function(err,req,res,next) {
 	//console.log(err);
-	res.status(400).send({error: err.message})
+	return res.status(400)
 
 })
 
@@ -44,9 +44,9 @@ app.use(function(err,req,res,next) {
 
 let server;
 
-function runServer(databaseURL) {
+function runServer(databaseUrl = DATABASE_URL, port = PORT) {
   return new Promise((resolve, reject) => {
-    mongoose.connect(DATABASE_URL,  { useNewUrlParser: true } , err => {
+    mongoose.connect(databaseUrl,  { useNewUrlParser: true } , err => {
       if (err) {
         return reject(err);
       }
