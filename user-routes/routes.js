@@ -126,7 +126,7 @@ router.get('/home', function(req, res, next) {
 	return blog.find( function( err, post ) {
     if( !err ) {
 		console.log(post)
-        res.render('home',{page:'blog', post})
+        res.render('home',{page:'home', post})
     } else {
         return console.log( err );
     }
