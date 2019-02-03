@@ -258,35 +258,4 @@ describe("Page Routes", function() {
       });
   });
 });
-      
-
-  /* FULL APP PAGES
-  it("Friends route should exist", function() {
-    return chai
-      .request(app)
-      .get("/users")
-      .then(function(res) {
-        expect(res).to.have.status(200);
-      });
-  });
     
-    
-  it("User profile route should exist", function() {
-    return chai
-      .request(app)
-      .get("/users/:id")
-      .then(function(res) {
-        expect(res).to.have.status(200);
-      });
-  });
-         
-  it("Therapists profile route should exist", function() {
-    return chai
-      .request(app)
-      .get("/therapists/:id")
-      .then(function(res) {
-        expect(res).to.have.status(200);
-      });
-  }); */
-
-

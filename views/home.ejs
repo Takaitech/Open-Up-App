@@ -5,58 +5,51 @@
  		<% include partials/head %> 
 	</head>
     <body>
-		<header>
+		<header role='banner'>
 		<% include partials/header %>
-		<img class='pageTitle' src='/files/MENU/Home.png'>
+		<img class='pageTitle' src='/files/MENU/Home.png' alt='Home Page'>
 		<a href='https://open-up-app.herokuapp.com/' class='grey-text' id='logout'>Logout</a>
 		</header>
-		
 		<% include partials/menu %>
-		<main>
+		<main role='main'>
 			<div id='input-username' class='hidden'>
-					<div class='input-field'>
-          				<label for='signup-username'>Enter Display Name</label>
-          				<input type='username' id='signup-username' required />
-						<button class='updateDisplayName' type='submit'>Submit</button>
-        			</div>
+				<div class='input-field'>
+          			<label for='signup-username'>Enter Display Name</label>
+          			<input type='username' id='signup-username' required />
+					<button class='updateDisplayName' type='submit'>Submit</button>
+        		</div>
 			</div>
 			<section id='feed'>
 				<% post.forEach(function(posts){ %>
 				<h2 class='postTitle'><%= posts.title %></h2>
 				<div id='blogPost'>					
-					<img class='postImage' src='<%= posts.image %>'>
+					<img class='postImage' src='<%= posts.image %>' alt='Post Image'>
 					<p class='postContent'><%= posts.content %></p> 
 					<p class='postRegards'><%= posts.regards %></p> 
 					<p class='postTime'><%= posts.publishedAt %></p>
 				</div>
-				
     			<% }) %>
 			</section>
-			
-		<% include partials/ads %>
+			<% include partials/ads %>
 		</main>
 		<% include partials/script %>
 		<script>
 			setTimeout(
 			function wait() {
-			var user = firebase.auth().currentUser;
-			console.log(user.displayName);
-			if(user.displayName === null) {
-				$('#input-username').removeClass('hidden');
-				
-			}
+				var user = firebase.auth().currentUser;
+				console.log(user.displayName);
+				if(user.displayName === null) {
+					$('#input-username').removeClass('hidden');
+				} 
 			}, 2000);
 			
 			$('.updateDisplayName').on('click', event => {
-				
 				var user = firebase.auth().currentUser;
 				let username = $('#signup-username').val();
 				user.updateProfile({
-  				displayName: username
+  					displayName: username
 				});
-				console.log(user)
 			})
-			
 		</script>
     </body>
 </html>

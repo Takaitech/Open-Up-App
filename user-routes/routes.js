@@ -65,14 +65,14 @@ let mockTherapists = [
 	{
 	firstName: 'Jackie',
 	lastName: 'Johnson',
-	profilePhoto: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-	bio: 'bio',
+	profilePhoto: 'https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+	bio: null,
 	education: {
 		school: 'UCLA',
 		degrees: 'Masters in Psychology',
 		yearsAttended: '2010-2016'
 	},
-	specializations: ['Anxiety','Substance Abuse'],
+	specializations: ['Anxiety','Mental Disorders'],
 	contact: {
 		phoneNumber: '(626)-241-8889',
 		email: 'jackiejtherapy@gmail.com'
@@ -82,29 +82,62 @@ let mockTherapists = [
 	firstName: 'Steve',
 	lastName: 'Dogg',
 	profilePhoto: 'https://images.pexels.com/photos/936593/pexels-photo-936593.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
-	bio: 'bio',
+	bio: null,
 	education: {
 		school: 'USC',
 		degrees: 'Masters in Psychology',
 		yearsAttended: '2010-2016'
 	},
-	specializations: ['Anxiety','Substance Abuse'],
+	specializations: ['Anxiety','Bipolar Disorder','Neurocognitive Disorders'],
 	contact: {
 		phoneNumber: '(626)-241-8889',
 		email: 'jackiejtherapy@gmail.com'
 	}
 	},
 	{
-	firstName: 'Steve',
-	lastName: 'Dogg',
-	profilePhoto: '',
-	bio: 'bio',
+	firstName: 'Carl',
+	lastName: 'Lawson',
+	profilePhoto: 'https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+	bio: null,
 	education: {
 		school: 'USC',
 		degrees: 'Masters in Psychology',
 		yearsAttended: '2010-2016'
 	},
-	specializations: ['Anxiety','Substance Abuse'],
+	specializations: ['Anxiety','Bipolar Disorder','Neurocognitive Disorders'],
+	contact: {
+		phoneNumber: '(626)-241-8889',
+		email: 'jackiejtherapy@gmail.com'
+	}
+	},
+	{
+	firstName: 'Rebecca',
+	lastName: 'Warren',
+	profilePhoto: 'https://images.pexels.com/photos/1181695/pexels-photo-1181695.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+	bio: null,
+	education: {
+		school: 'USC',
+		degrees: 'Masters in Psychology',
+		yearsAttended: '2010-2016'
+	},
+	specializations: ['Anxiety','Bipolar Disorder','Personality Disorders'],
+	contact: {
+		phoneNumber: '(626)-241-8889',
+		email: 'jackiejtherapy@gmail.com'
+	}
+	},
+	
+	{
+	firstName: 'Jen',
+	lastName: 'Anderson',
+	profilePhoto: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+	bio: null,
+	education: {
+		school: 'USC',
+		degrees: 'Masters in Psychology',
+		yearsAttended: '2010-2016'
+	},
+	specializations: ['Anxiety','Bipolar Disorder','Personality Disorders'],
 	contact: {
 		phoneNumber: '(626)-241-8889',
 		email: 'jackiejtherapy@gmail.com'
@@ -153,7 +186,7 @@ router.get('/threads', function(req, res, next) {
 })
 
 
-//ROUTE TO SELECTD THREAD
+//ROUTE TO SELECTED THREAD
 router.get('/threads/:permalink', function(req, res, next) {
 	const permalink = req.params;
 	
@@ -257,7 +290,6 @@ router.delete('/threads/:permalink/:id', function(req, res, next) {
 	}
 	});
 	
-	
 	function validateUser(uid) {
 		if(uid === user) {
 			console.log('correct user')
@@ -282,33 +314,5 @@ router.get('/therapists', function(req, res, next) {
 	return res.render('therapists', { page:'therapists', mockTherapists })
   	.catch(next)
 });
-
-
-//FULL APP FEATURE
-/*
-router.get('/therapists/:id', function(req, res, next) {
-	res.render('therapistprofile', { page:'profile' })
-   	.catch(next)
-
-});
-
-router.get('/users', function(req, res) {
-	res.render('friends', {page:'friends', menuId:'friends', mockFriends});
-    if(res.status = 200) {
-        console.log('users route working');
-    }
-});
-
-
-router.get('/users/:id', function(req, res) {
-  res.render('userprofile', {page:'profile', menuId:'profile', mockFriends});
-    if(res.status = 200) {
-        console.log('users:id route working');
-    }
-});
-*/
-
-
-
 
 module.exports = router;

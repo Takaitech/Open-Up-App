@@ -5,13 +5,13 @@
  		<% include partials/head %> 
 	</head>
     <body>
-		<header>
+		<header role='banner'>
 		<% include partials/header %>	
-		<img class='pageTitle' src='/files/MENU/Threads.png'>
+		<img class='pageTitle' src='/files/MENU/Threads.png' alt='Thread Page'>
 		<a href='https://open-up-app.herokuapp.com/' class='grey-text' id='logout'>Logout</a>
 		</header>
 		<% include partials/menu %>
-		<main class='noScroll'>
+		<main role='main' class='noScroll'>
 			<div id='threadsList'>
 				<% for(let i=0; i < threads.length; i++) { %>
 				<div id='threadContainer'>

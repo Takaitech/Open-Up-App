@@ -5,9 +5,9 @@
  		<% include partials/head %> 
 	</head>
     <body>
-		<header>
+		<header role='banner'>
 		<% include partials/header %>
-		<img class='pageTitle' src='/files/MENU/Blog.png'>
+		<img class='pageTitle' src='/files/MENU/Blog.png' alt='Blog Page'>
 		<a href='https://open-up-app.herokuapp.com/' class='grey-text' id='logout'>Logout</a>
 		</header>
 		<% include partials/menu %>
@@ -15,9 +15,10 @@
 			<section id='feed'>
 				<% for(let i=0; i < post.length; i++) {%>
 				<h2 class='postTitle'><%=post[i].title %></h2>	
-				<div id='blogPost'>					
+				<div id='blogPost'>			
 					<img class='postImage' src='<%= post[i].image %>'>
-					<p class="tab"></p><p class='postContent'><%= post[i].content %></p> 
+					<p class="tab"></p><p class='postContent'><%= post[i].content %></p>
+					<p class='postRegards'><%= posts.regards %></p> 
 					<p class='postTime'><%= post[i].publishedAt %></p>
 				</div>
     			<% } %>
