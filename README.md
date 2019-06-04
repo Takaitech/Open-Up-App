@@ -47,6 +47,8 @@ openup123
 * Node JS
 * Express
 * MongoDB
+* Mongoose
+
 
 ### CONTINUOUS INTEGRATION:
 * Mocha/Chai
