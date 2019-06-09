@@ -17,6 +17,11 @@ $('.signUpLink').on('click', event => {
 	$('#login').addClass('hidden');
 })
 
+$('.back-button').on('click', event => {
+	$('#signup').addClass('hidden');
+	$('#login').removeClass('hidden');
+})
+
 $('.updateDisplayName').on('click', event => {
 	$('#input-username').addClass('hidden');
 })
