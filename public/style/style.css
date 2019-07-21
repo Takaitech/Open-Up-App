@@ -89,7 +89,7 @@ main {
 
 
 #feed {
-	width: 80%;
+	width: 90%;
 	padding: 20px;
 	border-radius: 13px;
 	background-color: rgb(95,107,96);
@@ -119,7 +119,7 @@ main {
 
 
 #statusUpdate{
-	max-width: 80%%;
+	max-width: 80%;
 	background: white;
 	border-radius: 13px;
 	padding: 20px;
@@ -128,9 +128,12 @@ main {
 
 
 .postImage {
+	display: block;
 	width: 80%;
 	padding: 20px;
 	border-radius: 70px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 
@@ -141,11 +144,10 @@ main {
 
 #blogPost {
 	background-color: white;
-	100%;
 	border-radius: 13px;
 	margin:10px 0px;
 	color: black;
-	text-align: center;
+	text-align: left;
 }
 
 
@@ -282,7 +284,7 @@ main {
 
 
 #threadsList, #therapists, #profile{
-	width: 80%;
+	width: 90%;
 	background-color: rgb(95,107,96);
 	height: 600px;
 	border-left: rgb(118,122,118) 7px solid;
@@ -314,7 +316,7 @@ main {
 
 
 .thread {
-	width: 95%%;
+	width: 95%;
 	font-size: 20px;
 	color: white;
  	background: rgb(76,82,76);
@@ -463,7 +465,7 @@ a {
 #logout{
 	position:  absolute;
 	top: 45px;
-	right:50px;
+	right:10%;
 	color: white;
 	font-size: 15px;
 }
