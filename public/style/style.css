@@ -558,6 +558,7 @@ a {
  	top: 40; 
 	bottom: 19;
 	left: 200px;
+	right: 50%;
 	width: 100%;
   	background-color: rgba(0,0,0,0.6); /* Black background with opacity */
   	z-index: 2; /* Specify a stack order in case you're using a different order for other elements */

@@ -30,9 +30,8 @@ openupdemo@gmail.com
 openup123
 
 
-## Live Site Screenshots:
-<img src="screenshots/HomePage.png" alt="Open Up App Home Page" border="4">
-<img src="screenshots/ThreadPage.png" alt="Open Up App Threads Page" border="4">
+## Live Site Screenshot:
+<img src="screenshots/live-app-screenshot.png" alt="Open Up App Threads Page" border="4">
 
 ## TECHNOLOGY STACK
 
